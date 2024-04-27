@@ -11,8 +11,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "prepare": "husky install",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "lint": "eslint --ext . .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint  . --ext .js,.jsx,.ts,.tsx --fix",
     "lint:css": "stylelint --fix \"**/*.css\"",
     "typecheck": "tsc --noEmit"
   },

@@ -17,15 +17,12 @@ React starter template inspired by [vitesse](https://github.com/antfu/vitesse)
 - Eslint, Prettier, Husky, Lint-staged ✅
 
 
- ![screenshot](public/img/dark.png)
- ![screenshot](public/img/light.png)
-
 ## Installation :
 
-     git clone https://github.com/boussadjra/vitesse-react.git
-     cd vitesse-react
+     git clone https://github.com/boussadjra/vite-react-ts-starter.git
+     cd vite-react-ts-starter
      pnpm install
      pnpm run dev
 
-then visit http://localhost:.5173
+then visit http://localhost:3000
 # vite-react-ts-starter

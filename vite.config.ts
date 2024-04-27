@@ -17,6 +17,7 @@ export default defineConfig({
     }),
     react(),
     Pages({
+      // eslint-disable-next-line unused-imports/no-unused-vars
       extendRoute(route, parent) {
         if (route.path === '/') {
           // Index is unauthenticated.
@@ -65,5 +66,6 @@ export default defineConfig({
   },
   server: {
     host: '0.0.0.0',
+    port: 3000,
   },
 })

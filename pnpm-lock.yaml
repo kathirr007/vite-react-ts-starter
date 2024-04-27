@@ -97,12 +97,18 @@ devDependencies:
   eslint-plugin-unused-imports:
     specifier: ^3.1.0
     version: 3.1.0(@typescript-eslint/eslint-plugin@7.7.1)(eslint@9.1.1)
+  fast-glob:
+    specifier: ^3.3.2
+    version: 3.3.2
   husky:
     specifier: ^9.0.11
     version: 9.0.11
   lint-staged:
     specifier: ^15.2.2
     version: 15.2.2
+  minimatch:
+    specifier: ^9.0.4
+    version: 9.0.4
   postcss:
     specifier: ^8.4.38
     version: 8.4.38

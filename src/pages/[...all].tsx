@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { t } from 'i18next'
-import Button from '@/components/core/Button'
+// import Button from '@/components/core/Button'
 
 export default function NotFoundPage() {
   return (
@@ -15,13 +15,13 @@ export default function NotFoundPage() {
           </span>
         </h1>
         {/* go to home */}
-        <Button as={Link} to="/" color="primary" variant="solid" size="lg">
+        <CoreButton as={Link} to="/" color="primary" variant="solid" size="lg">
           {t('home.go_home')}
-        </Button>
+        </CoreButton>
         {/* go back */}
-        <Button onClick={() => window.history.back()} color="secondary" variant="text" size="lg">
+        <CoreButton onClick={() => window.history.back()} color="secondary" variant="text" size="lg">
           {t('common.back')}
-        </Button>
+        </CoreButton>
       </div>
     </div>
   )

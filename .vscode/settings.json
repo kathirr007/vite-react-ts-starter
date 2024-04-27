@@ -1,7 +1,7 @@
 {
-    "i18n-ally.localesPaths": [
-        "src/locales"
-    ],
+  "i18n-ally.localesPaths": [
+    "src/locales"
+  ],
   // Enable the ESlint flat config support
   "eslint.experimental.useFlatConfig": true,
 
@@ -43,7 +43,7 @@
     "jsonc",
     "yaml",
     "toml",
-    "astro",
+    "astro"
   ],
 
   // Stylelint support

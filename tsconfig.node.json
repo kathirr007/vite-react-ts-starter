@@ -3,11 +3,11 @@
     "composite": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "types": ["node"],
     "strict": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "vite.config.ts"
-    // "unocss.config.ts"
+    "vite.config.*"
   ]
 }

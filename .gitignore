@@ -23,8 +23,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.eslintcache*
 
 # Local Netlify folder
 .netlify
 *.stylelintcache
-*.eslintcache

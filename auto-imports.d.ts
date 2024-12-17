@@ -6,7 +6,10 @@
 export {}
 declare global {
   const CoreButton: typeof import('@/components/core/Button.tsx')['Button']
+  const LayoutFooter: typeof import('@/components/layout/Footer.tsx')['Footer']
   const LayoutLoader: typeof import('@/components/layout/Loader.tsx')['Loader']
+  const LayoutsAdminLayout: typeof import('@/layouts/AdminLayout.tsx')['AdminLayout']
+  const LayoutsHomeLayout: typeof import('@/layouts/HomeLayout.tsx')['HomeLayout']
   const createRef: typeof import('react')['createRef']
   const forwardRef: typeof import('react')['forwardRef']
   const lazy: typeof import('react')['lazy']

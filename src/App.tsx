@@ -7,7 +7,7 @@ function App() {
   useDirection()
 
   return (
-    <div className="w-full m-0 bg-gradient-to-b bg-primary-50 dark:to-slate-800 dark:from-primary-950 root">
+    <div className="w-full m-0 root">
       <Suspense fallback={<LayoutLoader />}>{useRoutes(routes)}</Suspense>
     </div>
   )

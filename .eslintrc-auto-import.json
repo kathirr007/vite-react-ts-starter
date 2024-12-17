@@ -36,6 +36,14 @@
     "useTransition": true,
     "LayoutFooter": true,
     "LayoutsAdminLayout": true,
-    "LayoutsHomeLayout": true
+    "LayoutsHomeLayout": true,
+    "Link": true,
+    "NavLink": true,
+    "Navigate": true,
+    "Outlet": true,
+    "Route": true,
+    "Routes": true,
+    "useLinkClickHandler": true,
+    "useSearchParams": true
   }
 }

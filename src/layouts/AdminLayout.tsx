@@ -25,4 +25,4 @@ function AdminLayout(props: { children: React.ReactNode }) {
     : <Navigate to="/auth/sign-in" />
 }
 
-export default AdminLayout
+export { AdminLayout }

@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "private": false,
   "description": "A Vite + React + TypeScript starter template.",
-  "author": "Boussadjra Brahim ",
   "license": "MIT",
   "scripts": {
     "dev": "vite",

@@ -44,6 +44,7 @@
     "Route": true,
     "Routes": true,
     "useLinkClickHandler": true,
-    "useSearchParams": true
+    "useSearchParams": true,
+    "UiButton": true
   }
 }

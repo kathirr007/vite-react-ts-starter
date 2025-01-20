@@ -1,88 +1,44 @@
-import path from 'node:path'
-import AutoImport from 'unplugin-auto-import/vite'
-import Pages from 'vite-plugin-pages'
-import { defineConfig } from 'vite'
+import { URL, fileURLToPath } from 'node:url'
 import react from '@vitejs/plugin-react'
-import FastGlob from 'fast-glob'
-import { minimatch } from 'minimatch'
-
-function pascalCaseWithCapitals(str: string) {
-  return str
-    .split('/')
-    .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join('')
-}
-
-function removeExtension(str: string) {
-  return path.basename(str, path.extname(str))
-}
-
-function getComponentImports() {
-  const directories = [
-    {
-      pattern: './src/components/**/*.{tsx,jsx}',
-      omit: './src/components',
-    },
-    {
-      pattern: './src/layouts/*.{tsx,jsx}',
-      omit: './src/',
-    },
-  ]
-
-  const entries = FastGlob.sync(
-    directories.map(x => x.pattern),
-    {
-      dot: true,
-      objectMode: true,
-    },
-  )
-
-  return entries.map((entry: any) => {
-    const dirOptions = directories.find(dir => minimatch(entry.path, dir.pattern))
-
-    const componentName = entry.path
-      .replace(new RegExp(dirOptions?.omit as string, 'gi'), '')
-      .split('/')
-      .filter(Boolean)
-      .map(pascalCaseWithCapitals)
-      .join('')
-
-    const fromPath = entry.path
-      .replace(/\.\/src/gi, '@')
-
-    return {
-      [fromPath]: [
-        [removeExtension(entry.name), removeExtension(componentName)],
-      ],
-    }
-  })
-}
+import AutoImport from 'unplugin-auto-import/vite'
+import { defineConfig } from 'vite'
+import Pages from 'vite-plugin-pages'
+import ViteRestartPlugin from 'vite-plugin-restart-2'
+import { getComponentImports } from './auto-import-utils'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    ViteRestartPlugin({
+      restart: ['./src/components/**/*.*'],
+      eventsToWatch: ['add', 'unlink'],
+    }),
+    ViteRestartPlugin({
+      restart: ['./src/hooks/**/*.*', './src/utils/**/*.*', './src/store/**/*.*'],
+    }),
     AutoImport({
       dts: './auto-imports.d.ts',
-      defaultExportByFilename: true,
-      eslintrc: {
-        enabled: true,
-      },
+      defaultExportByFilename: false,
       include: [
         /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
       ],
       dirs: [
-        './src/hooks',
+        './src/hooks/**',
+        './src/utils/**',
+        './src/store/**',
       ],
+      eslintrc: {
+        enabled: true,
+      },
       imports: [
         ...getComponentImports(),
         'react',
         'react-router',
       ],
+      dumpUnimportItems: true,
     }),
-    react(),
     Pages({
-      // eslint-disable-next-line unused-imports/no-unused-vars
-      extendRoute(route, parent) {
+      extendRoute(route) {
         if (route.path === '/') {
           // Index is unauthenticated.
           return route
@@ -95,14 +51,21 @@ export default defineConfig({
         }
       },
     }),
+    react(),
   ],
   resolve: {
     alias: {
-      '@/': `${path.resolve(__dirname, 'src')}/`,
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
   server: {
-    host: '0.0.0.0',
+    proxy: {
+      // '/api/': {
+      //   target: 'http://127.0.0.1:9000',
+      //   // target: 'https://brdev.fly.dev',
+      //   changeOrigin: true,
+      // },
+    },
     port: 3000,
   },
 })

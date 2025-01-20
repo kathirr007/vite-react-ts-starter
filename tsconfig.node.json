@@ -9,6 +9,7 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "vite.config.*"
+    "vite.config.*",
+    "./auto-import-utils.ts"
   ]
 }

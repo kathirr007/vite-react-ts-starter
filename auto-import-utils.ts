@@ -1,5 +1,5 @@
-import path from 'node:path'
 import type { ImportsMap } from 'unplugin-auto-import/types'
+import path from 'node:path'
 import fg from 'fast-glob'
 import { minimatch } from 'minimatch'
 
